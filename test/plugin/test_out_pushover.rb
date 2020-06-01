@@ -8,6 +8,7 @@ class TwilioOutputTest < Test::Unit::TestCase
   CONFIG = %[
     account_token  PUSHOVER_ACCOUNT_ID
     user_key   USER_KEY
+    priority   PRIORITY
   ]
 
   def create_driver(conf=CONFIG, tag='test')
@@ -22,6 +23,7 @@ class TwilioOutputTest < Test::Unit::TestCase
 
     assert_equal 'PUSHOVER_ACCOUNT_ID', d.instance.account_token
     assert_equal 'USER_KEY', d.instance.user_key
+    assert_equal 'PRIORITY', d.priority.priority
   end
 
   def test_emit

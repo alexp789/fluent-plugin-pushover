@@ -3,6 +3,7 @@ class Fluent::PushoverOutput < Fluent::Output
 
   config_param :account_token, :string
   config_param :user_key, :string
+  config_param :priority, :integer
 
   PUSHOVER_ENDPOINT = 'https://api.pushover.net/1/messages.json'
 
@@ -32,7 +33,7 @@ class Fluent::PushoverOutput < Fluent::Output
 
   def send(message)
     begin
-      response = Net::HTTP.post_form(URI.parse(PUSHOVER_ENDPOINT), {'token' => @account_token, 'user' => @user_key, 'message' => message})
+      response = Net::HTTP.post_form(URI.parse(PUSHOVER_ENDPOINT), {'token' => @account_token, 'user' => @user_key, 'priority' => priority, 'message' => message})
     rescue => e
       log.error "Pushover error: #{e.message}"
     end

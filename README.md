@@ -14,6 +14,7 @@ td-agent-gem install fluent-plugin-pushover
   # Set account_token (app token) and user_key (id of client)
   account_token     <YOUR_TOKEN>            # Required
   user_key          <YOUR_TOKEN>            # Required
+  priority          <MESSAGE_PRIORITY>      # Required
 
   # Set log level to prevent info error for Fluentd v0.10.43 or later.
   log_level       warn
